@@ -17,10 +17,6 @@ import schoolmanagement.domain.Course;
 import schoolmanagement.domain.Education;
 import schoolmanagement.domain.Student;
 
-/**
- *
- * @author User1
- */
 public class SchoolManagement {
 
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
@@ -29,10 +25,7 @@ public class SchoolManagement {
 
     static boolean loop = true;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+public static void main(String[] args) {
 
         EntityManager em = emf.createEntityManager();
         while (loop) {
@@ -85,6 +78,8 @@ public class SchoolManagement {
                 break;
 
             case 4:
+                
+                CourseManagementMenu();
 
                 break;
 
@@ -312,7 +307,7 @@ public class SchoolManagement {
                 
             case 5:
                 
-                EducationDAO.addEducationToTeacher();
+                EducationDAO.addStudentToEducation();
                 
                 break;
                 
@@ -325,6 +320,10 @@ public class SchoolManagement {
         }
         
         
+    }
+
+    private static void CourseManagementMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

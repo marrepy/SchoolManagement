@@ -5,9 +5,8 @@ import java.util.Scanner;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import schoolmanagement.domain.Course;
 import schoolmanagement.domain.Education;
-import schoolmanagement.domain.Teacher;
+import schoolmanagement.domain.Student;
 
 
 public class EducationDAO {
@@ -78,28 +77,32 @@ public class EducationDAO {
         
     }
     
-    public static void addEducationToTeacher() {
+    public static void addStudentToEducation() {
         
         EducationDAO.showAll();
-        System.out.println("What is the ID of the education that you want to add?");
-        int educationId = sc.nextInt();
+        System.out.println("What is the ID of the education that you want /n"
+                + "the student to be added to");
+        Long educationId = sc.nextLong();
         sc.nextLine();
         
-        TeacherDAO.showAll();
-        System.out.println("Choose the ID of the teacher that you want the course /n"
-                + "to be added to");
-        int teacherId = sc.nextInt();
+        StudentDAO.showAll();
+        System.out.println("Choose the ID of the student to be added to the education");
+        Long studentId = sc.nextLong();
         sc.nextLine();
         
         EntityManager em = emf.createEntityManager();
         
         Education foundEducation = em.find(Education.class, educationId);
         
-        Teacher foundTeacher = em.find(Teacher.class, teacherId);
-                
-                
+        Student foundStudent = em.find(Student.class, studentId);
         
+        em.getTransaction().begin();
         
+        foundEducation.getStudents().add(foundStudent);
+        
+        foundStudent.setEducation(foundEducation);
+                
+        em.getTransaction().commit();
         
     }
 
