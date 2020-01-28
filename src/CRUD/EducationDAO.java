@@ -96,9 +96,7 @@ public class EducationDAO {
         Education foundEducation = em.find(Education.class, educationId);
         
         Teacher foundTeacher = em.find(Teacher.class, teacherId);
-        
-        foundTeacher.get
-        
+                
                 
         
         
