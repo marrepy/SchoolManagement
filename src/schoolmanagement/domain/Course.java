@@ -13,9 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-/**
- * @author User1
- */
 @Entity
 public class Course implements Serializable {
 

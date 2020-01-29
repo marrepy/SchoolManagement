@@ -323,7 +323,55 @@ public static void main(String[] args) {
     }
 
     private static void CourseManagementMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        System.out.println("1. Create course");
+        System.out.println("2. Update course");
+        System.out.println("3. Delete course");
+        System.out.println("4. Show course");
+        System.out.println("5. Add course to student");
+        System.out.println("6. Show all courses");
+
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        EntityManager em = emf.createEntityManager();
+        
+        switch (choice) {
+            case 1:
+                
+                CourseDAO.createCourse();
+                break;
+                
+            case 2:
+                
+                CourseDAO.updateCourse();
+                break;
+                
+            case 3:
+                
+                CourseDAO.deleteCourse();
+                
+                break;
+                
+            case 4:
+                
+                CourseDAO.showCourse();
+                
+                break;
+                
+            case 5:
+                
+                
+                break;
+                
+            case 6:
+                
+                CourseDAO.showAll();
+                break;
+                
+            default:
+                System.out.println("No such option");
+        }
     }
 
 }
